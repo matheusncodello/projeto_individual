@@ -1,0 +1,129 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+  
+body{
+    background-color: #171a21;
+    color:#A6B0BD;
+    font-size:16px;
+}
+
+body::-webkit-scrollbar{
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #8892A4;
+}
+
+body::-webkit-scrollbar-track{
+    background: #292c34;
+}
+  
+.header{
+    display: flex;
+    position: relative;
+}
+ 
+.header .header-vertical{
+    width: 200px;
+    height: 100%;
+    background: #292c34;
+    padding: 2% 0%;
+    position: fixed;
+}
+
+/* .header .header-vertical h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+} */
+
+.csgo-logo{
+    width: 100%;
+    margin-bottom: 15%;
+}
+  
+.header .header-vertical ul li{
+    padding: 7%;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}    
+  
+.header .header-vertical ul li a{
+    color: #8892A4;
+    display: block;
+}
+  
+.header .header-vertical ul li a .fas{
+    width: 15%;
+}
+  
+.header .header-vertical ul li:hover{
+    background-color: #8892A4;
+}
+      
+.header .header-vertical ul li:hover a{
+    color: #fff;
+}
+   
+.header .header-vertical .icone-social{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+  
+.header .header-vertical .icone-social a{
+    display: block;
+    width: 40px;
+    background: #2e6eb9;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 5px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+  
+.header .principal{
+    width: 100%;
+    margin-left: 200px;
+}
+  
+.header .principal .conteudo{
+    padding: 35px;
+    background: #292c34;
+    color: #A6B0BD;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+  
+.header .principal .infos{
+    margin: 20px;
+    color: #A6B0BD;
+    line-height: 25px;
+}
+  
+.header .principal .infos div{
+    margin-bottom: 20px;
+}
+  
+@media (max-height: 500px){
+    .icone-social{
+      display: none !important;
+    }
+}
+

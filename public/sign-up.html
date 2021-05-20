@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="imagem/png" href="assets/img/csgo-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/sign-up.css">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script data-jsd-embedded data-key="94edbcc9-0662-4228-8d73-cc543fcd359f"
+    data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+  <title>Register | CS:GO</title>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <div class="header">
+    <div class="header-vertical">
+      <!-- <h2>CS:GO Tracker</h2> -->
+      <img src="assets/img/logo.png" class="csgo-logo">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="mapas.html"><i class="fas fa-globe"></i>Mapas</a></li>
+        <li><a href="armas.html"><i class="fas fa-tag"></i>Armas</a></li>
+        <li><a href="sign-in.html"><i class="fas fa-sign-in-alt"></i>Login / Registro</a></li>
+      </ul>
+      <div class="icone-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Conteúdo do site -->
+    <div class="register-position">
+      <div class="container-register">
+        <div class="box-register">
+          <h1>Registro</h1>
+          <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+            Nome in-game
+            <input type="text" name="nome" class="ipt-register" autofocus="autofocus" required minlength="">
+            <br>
+            Email
+            <input type="text" name="email" class="ipt-register" required minlength="">
+            <br>
+            Usuário
+            <input type="text" name="login" class="ipt-register" name="login" required minlength="8">
+            <br>
+            Senha
+            <input type="password" name="senha" class="ipt-register ipt-senha" name="senha" required minlength="8">
+            <br>
+            <button type="submit" id="btn_cadastrar" value="Cadastrar" class="btn-register">Registrar</button>
+            <br>
+            <span>Já tem conta? <a href="sign-in.html">Entre aqui</a></span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/js/javascript.js"></script>
+</body>
+
+</html>

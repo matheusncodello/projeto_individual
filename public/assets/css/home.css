@@ -1,0 +1,26 @@
+.noticia1{
+ align-items: center;
+ border-bottom: 1px solid #8892A4;
+ padding-bottom: 5px;
+}
+.img-noticia1-1{
+    width: 500px;
+    float: left;
+    margin-left: 310px;
+}
+.img-noticia1-2{
+    width: 500px;
+    float: left;
+    margin-left: 10px;
+}
+.titulo-not1{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.sub-not1{
+    margin-top: 335px;
+    font-style: italic;
+    font-size: 12px;
+}
