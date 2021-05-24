@@ -11,7 +11,7 @@
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   <script data-jsd-embedded data-key="94edbcc9-0662-4228-8d73-cc543fcd359f"
     data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
-  <title>Register | CS:GO</title>
+  <title>Registro | CS:GO</title>
 </head>
 
 <body>
@@ -40,13 +40,13 @@
           <h1>Registro</h1>
           <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
             Nome in-game
-            <input type="text" name="nome" class="ipt-register" autofocus="autofocus" required minlength="">
+            <input type="text" name="nomeInGame" class="ipt-register" autofocus="autofocus" required minlength="">
             <br>
             Email
             <input type="text" name="email" class="ipt-register" required minlength="">
             <br>
             Usuário
-            <input type="text" name="login" class="ipt-register" name="login" required minlength="8">
+            <input type="text" name="usuario" class="ipt-register" name="login" required minlength="8">
             <br>
             Senha
             <input type="password" name="senha" class="ipt-register ipt-senha" name="senha" required minlength="8">
@@ -63,3 +63,29 @@
 </body>
 
 </html>
+
+<script>
+
+  function cadastrar() {
+    var formulario = new URLSearchParams(new FormData(form_cadastro));
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      body: formulario
+    }).then(function (response) {
+
+      if (response.ok) {
+
+        window.location.href = 'sign-in.html';
+
+      } else {
+
+        console.log('Erro de cadastro!');
+        response.text().then(function (resposta) {
+          div_erro.innerHTML = resposta;
+        });
+      }
+    });
+    return false;
+  }
+
+</script>

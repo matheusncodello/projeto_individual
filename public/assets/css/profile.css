@@ -1,0 +1,13 @@
+.container {
+    max-width: 80%;
+}
+
+.profile-box {
+    background-color: #292c34;
+    padding: 30px 20px 0px 20px;
+    border-radius: 3px;
+    width: 80%;
+    height: 700px;
+    margin-left: 30%;
+    margin-top: 8%;
+}

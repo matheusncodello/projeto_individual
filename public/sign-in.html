@@ -45,7 +45,7 @@
             Senha
             <input type="password" class="ipt-login ipt-senha" name="senha">
             <br>
-            <button id="btn_entrar" class="btn-entrar">Entrar</button>
+            <button id="btn_entrar" class="btn-entrar" type="submit">Entrar</button>
             <br>
             <span>Ainda não tem conta? <a href="sign-up.html">Registre aqui</a></span>
           </form>
@@ -57,3 +57,37 @@
 </body>
 
 </html>
+
+<script>
+
+  function entrar() {
+    var formulario = new URLSearchParams(new FormData(form_login));
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      body: formulario
+    }).then(resposta => {
+
+      if (resposta.ok) {
+
+        resposta.json().then(json => {
+
+          sessionStorage.login_usuario_meuapp = json.usuario;
+          sessionStorage.nome_usuario_meuapp = json.usuario;
+
+          window.location.href = 'profile.html';
+        });
+
+      } else {
+
+        console.log('Erro de login!');
+
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    });
+
+    return false;
+  }
+
+</script>
