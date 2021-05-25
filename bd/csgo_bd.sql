@@ -8,3 +8,5 @@ email varchar(50),
 usuario varchar(20),
 senha varchar(20)
 );
+
+select * from tbUsuario;

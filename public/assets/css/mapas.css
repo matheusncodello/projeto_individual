@@ -7,6 +7,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 70px 0;
+    margin-right: 10%;
   }
   .modal-content-wrapper .image-modal-content {
     flex: 0 0 30%;
@@ -113,4 +114,5 @@
   h1{
       text-align: center;
       margin-top: 20px;
+      margin-left: 5%;
   }

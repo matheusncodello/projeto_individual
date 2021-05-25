@@ -1,3 +1,15 @@
+.principal{
+    width: 100%;
+    margin-left: 200px;
+}
+.principal .infos{
+    margin: 20px;
+    color: #A6B0BD;
+    line-height: 25px;
+} 
+.principal .infos div{
+    margin-bottom: 20px;
+}
 .noticia1{
  align-items: center;
  border-bottom: 1px solid #8892A4;
