@@ -8,14 +8,11 @@
   <link href="https://fonts.googleapis.com/css?family=Changa&display=swap&subset=arabic,latin-ext" rel="stylesheet">
   <link rel="icon" type="imagem/png" href="assets/img/csgo-icon.png" />
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/profile.css">
+  <link rel="stylesheet" href="assets/css/transacoes.css">
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js"
-    integrity="sha512-VCHVc5miKoln972iJPvkQrUYYq7XpxXzvqNfiul1H4aZDwGBGC0lq373KNleaB2LpnC2a/iNfE5zoRYmB4TRDQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script data-jsd-embedded data-key="94edbcc9-0662-4228-8d73-cc543fcd359f"
     data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
-  <title>Perfil | CS:GO</title>
+  <title>Transações | CS:GO</title>
 </head>
 
 <body>
@@ -36,19 +33,27 @@
       </div>
     </div>
   </div>
-
   <div class="content">
-    <div class="profile-box">
-      <div class="user-box">
-        <img src="assets/img/user.png">
-        <p>Bem vindo <b id="b_usuario" style="color:#bdb8d7;"></b></p>
+    <div class="transaction-box">
+      <div class="tableStyle">
+        <h2>Histórico de compras:&nbsp;<span id="b_usuario" style="color: #bdb8d7;"></span></h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Itens comprados</th>
+              <th>Valor gasto</th>
+              <th>Dia e horário da compra</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
       </div>
-      <div id="canvas-box">
-        <canvas id="dashboard" class="dashboard"></canvas>
-        <div class="user-interaction"">
-          <input id="inputDashboard" placeholder="Insira seu k/d aqui!">
-          <button onclick="dashboardPush()">Inserir</button>
-        </div>
+      <div class="inputButton">
+        <input id="itemComprado" type="text">
+        <input id="valorGasto" type="text">
+        <input id="dataCompra" type="datetime-local">
+        <button onclick="setTransaction()">Adicionar compra</button>
       </div>
     </div>
   </div>
@@ -58,6 +63,32 @@
 </html>
 
 <script type="text/javascript">
+
+  var compras = [];
+
+  function setTransaction() {
+    if (compras.length <= 15) {
+      compras.push({
+        item: itemComprado.value,
+        valor: valorGasto.value,
+        data: new Date(dataCompra.value).toLocaleString("pt-br")
+      })
+      populateTable(compras);
+    };
+  }
+
+  function populateTable(arr) { // Popular tabela = Adicionar linhas na tabela a partir dos dados das inputs
+    tableBody.innerHTML = ''
+    arr.forEach(el => { // Para cada elemento do array, ele vai adicionar um 'filho' no tableBody
+      tableBody.innerHTML += (` 
+            <tr>
+                <td>${el.item}</td>
+                <td>${el.valor} R$</td>
+                <td>${el.data}</td>
+            </tr>
+                `) // Adicionando um tr na table
+    })
+  }
 
   function verificar_autenticacao() {
     login_usuario = sessionStorage.login_usuario_meuapp;
@@ -72,53 +103,6 @@
 
   }
   verificar_autenticacao();
-
-  function logoff() {
-    finalizar_sessao();
-    sessionStorage.clear();
-    redirecionar_login();
-  }
-
-  function dashboardPush() {
-    addData(dashboard, '', Number(inputDashboard.value));
-    inputDashboard.value = '';
-  }
-
-  function addData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
-    });
-    chart.update();
-  }
-
-  var ctx = document.getElementById('dashboard').getContext('2d');
-  var dashboard = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: '',
-      datasets: [{
-        label: 'Estatística',
-        data: [],
-        backgroundColor: [
-          'rgba(0, 0, 0, 0.1)'
-        ],
-        borderColor: [
-          '#8892A4'
-        ],
-        borderWidth: 3,
-        tension: 0.1,
-        fill: false
-      }]
-    },
-    options: {
-      responsive: false,
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
+  
 
 </script>

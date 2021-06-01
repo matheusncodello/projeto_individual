@@ -43,7 +43,7 @@
       </div>
       <div class="row">
         <label>Email</label>
-        <input autocomplete="off" type="text" name="email" required minlength="">
+        <input autocomplete="off" type="email" name="email" required minlength="">
       </div>
       <div class="row">
         <label>Usuário</label>
@@ -64,7 +64,7 @@
 <script>
 
   function cadastrar() {
-    var formulario = new URLSearchParams(new FormData(form_cadastro));
+    var formulario = new URLSearchParams(new FormData(form));
     fetch("/usuarios/cadastrar", {
       method: "POST",
       body: formulario

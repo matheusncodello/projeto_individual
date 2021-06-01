@@ -1,0 +1,67 @@
+.content{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transaction-box{
+    border: 1px solid #8892A4;
+    border-radius: 5px;
+    padding: 10px 30px;
+    background-color: #292c34;
+    width: 1500px;
+    height: 80%;
+    margin-left: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tableStyle{
+    width: 100%;
+}
+
+.inputButton > *{
+    margin: 0px 20px;
+}
+
+table{
+    width: 100%;
+    border: 1px #8892A4 solid;
+    border-collapse: collapse;
+}
+
+h2{
+    margin-bottom: 50px;
+}
+
+input{
+    background: #171a21;
+    color: #8892A4;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    height: 40px;
+    width: 200px;
+    padding-left: 5px;
+}
+
+button{
+    color: #8892A4;
+    background-color: #171a21;
+    border: 0;
+    font-size: 16px;
+    padding: 5px 50px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition-duration: 0.8s;
+}
+
+button:hover{
+    background-color: #8892A4;
+    color: #171a21;
+    transition-duration: 0.8s;
+}

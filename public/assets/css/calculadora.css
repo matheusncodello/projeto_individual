@@ -1,0 +1,75 @@
+.content{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-box{
+    border: 1px solid #8892A4;
+    border-radius: 5px;
+    padding: 10px 30px;
+    background-color: #292c34;
+    width: 1500px;
+    height: 80%;
+    margin-left: 200px;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    display: flex;
+}
+
+.select-div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.calculator-box select{
+    background: #171a21;
+    color: #8892A4;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    height: 50px;
+    width: 310px;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    margin-bottom: 100px;
+}
+
+button{
+    color: #8892A4;
+    background-color: #171a21;
+    border: 0;
+    font-size: 16px;
+    padding: 10px 50px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition-duration: 0.8s;
+    margin: 100px auto;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #8892A4;
+    color: #171a21;
+    transition-duration: 0.8s;
+}
+
+#divTotal{
+    font-size: 32px;
+}
+#divMsg{
+    font-size: 32px;
+}

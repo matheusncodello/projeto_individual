@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Changa&display=swap&subset=arabic,latin-ext" rel="stylesheet">
+  <link rel="icon" type="imagem/png" href="assets/img/csgo-icon.png" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/calculadora.css">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script data-jsd-embedded data-key="94edbcc9-0662-4228-8d73-cc543fcd359f"
+    data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+  <title>Calculadora | CS:GO</title>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <div class="header">
+    <div class="header-vertical">
+      <!-- <h2>CS:GO Tracker</h2> -->
+      <img src="assets/img/logo.png" class="csgo-logo">
+      <ul>
+        <li><a href="profile.html"><i class="fas fa-user"></i>Perfil</a></li>
+        <li><a href="calculadora.html"><i class="fas fa-calculator"></i>Calculadora</a></li>
+        <li><a href="transacoes.html"><i class="fas fa-coins"></i>Transações</a></li>
+        <li><a onclick="logoff()" style="cursor: pointer;"><i class="fas fa-sign-in-alt"></i>Sair</a></li>
+      </ul>
+      <div class="icone-social">
+        <a href="https://github.com/matheusncodello"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/matheus-noschese-codello/"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="calculator-box">
+      <h2>Simulador de compra para o round</h2>
+      <div class="select-div">
+        <div class="col"><select name="primary" id="primary" onchange="onChange('result1', primary.value, 'Valor da arma')">
+            <option value="">Selecione sua arma primária</option>
+            <option value="mac10">MAC-10</option>
+            <option value="p90">P90</option>
+            <option value="mp9">MP9</option>
+            <option value="mp7">MP7</option>
+            <option value="mp5">MP5-SD</option>
+            <option value="ump45">UMP-45</option>
+            <option value="bizon">PP-BIZON</option>
+            <option value="galil">GALIL-AR</option>
+            <option value="ak47">AK-47</option>
+            <option value="sg553">SG-553</option>
+            <option value="famas">FAMAS</option>
+            <option value="m4a4">M4A4</option>
+            <option value="m4a1">M4A1-S</option>
+            <option value="aug">AUG</option>
+            <option value="ssg08">SSG-08</option>
+            <option value="awp">AWP</option>
+            <option value="g3sg1">G3SG-1</option>
+            <option value="scar">SCAR-20</option>
+            <option value="mag7">MAG-7</option>
+            <option value="xm1014">XM1014</option>
+            <option value="nova">NOVA</option>
+            <option value="sawed">SAWED-OFF</option>
+            <option value="m249">M249</option>
+            <option value="negev">NEGEV</option>
+          </select>
+          <span id="result1">Valor da arma: 0$</span>
+        </div>
+        <div class="col">
+          <select name="secondary" id="secondary" onchange="onChange('result2', secondary.value, 'Valor da arma')">
+            <option value="">Selecione sua arma secundária</option>
+            <option value="p200">P200</option>
+            <option value="usp">USP-S</option>
+            <option value="glock">GLOCK-18</option>
+            <option value="p250">P250</option>
+            <option value="deagle">DESERT-EAGLE</option>
+            <option value="r8">REVOLVER-R8</option>
+            <option value="fiveseven">FIVE-SEVEN</option>
+            <option value="tec9">TEC-9</option>
+            <option value="cz75">CZ-75 AUTO</option>
+            <option value="dual">DUAL BERETTAS</option>
+          </select>
+          <span id="result2">Valor da arma: 0$</span>
+        </div>
+        <div class="col">
+          <select name="equipment" id="equipment" onchange="onChange('result3', equipment.value, 'Valor do equipamento')">
+            <option value="">Selecione seu equipamento</option>
+            <option value="kevlar">COLETE</option>
+            <option value="kevlarCapacete">COLETE + CAPACETE</option>
+          </select>
+          <span id="result3">Valor do equipamento: 0$</span>
+        </div>
+        <div class="col">
+          <select name="grenade" id="grenade" onchange="onChange('result4', grenade.value, 'Valor da granada')">
+            <option value="">Selecione sua granada</option>
+            <option value="he">HE EXPLOSIVA</option>
+            <option value="molotov">MOLOTOV INCENDIÁRIA</option>
+            <option value="flash">FLASHBANG</option>
+            <option value="smoke">GRANADA DE FUMAÇA</option>
+          </select>
+          <span id="result4">Valor da granada: 0$</span>
+        </div>
+      </div>
+      <div class="resize-button">
+        <button class="button" onclick="resultCalculator()">Valor total da compra</button>
+      </div>
+      <div id="divTotal"></div>
+      <div id="divMsg"></div>
+    </div>
+  </div>
+  <script src="./funcoes.js"></script>
+</body>
+
+</html>
+
+<script>
+
+  function onChange(span, value, label) {
+    var spans = {
+      'result1': result1,
+      'result2': result2,
+      'result3': result3,
+      'result4': result4,
+    };
+    spans[span].innerHTML = `${label}: ${armasSelect[value]}$`;
+  }
+
+  function resultCalculator() {
+    var result = armasSelect[primary.value] + armasSelect[secondary.value] + armasSelect[equipment.value] + armasSelect[grenade.value]
+    divTotal.innerHTML = `O valor total no round será de ${result || 0}$`
+    if (result <= 2300) {
+      divMsg.innerHTML = `Você está em um round ECO, ou seja, um round econômico!`
+    }
+    if (result > 2300 || result < 3800) {
+      divMsg.innerHTML = `Você está em um round Forçado, ou seja, um round onde compra o que conseguir!`
+    }
+    if (result >= 3800) {
+      divMsg.innerHTML = `Você está em um round com uma Compra total, ou seja, um round onde está com um loadout forte!`
+    }
+  }
+
+  var armasSelect = {
+    '': 0,
+    'mac10': 1050,
+    'p90': 2350,
+    'mp9': 1250,
+    'mp7': 1500,
+    'mp5': 1500,
+    'ump45': 1200,
+    'bizon': 1400,
+    'galil': 1800,
+    'ak47': 2700,
+    'sg553': 3000,
+    'famas': 2050,
+    'm4a4': 3100,
+    'm4a1': 2900,
+    'aug': 3300,
+    'ssg08': 1700,
+    'awp': 4750,
+    'g3sg1': 5000,
+    'scar': 5000,
+    'mag7': 1300,
+    'nova': 1050,
+    'xm1014': 2000,
+    'sawed': 1100,
+    'm249': 5200,
+    'negev': 1700,
+    'p200': 200,
+    'usp': 200,
+    'glock': 200,
+    'tec9': 500,
+    'fiveseven': 500,
+    'cz75': 500,
+    'dual': 400,
+    'p250': 300,
+    'deagle': 700,
+    'r8': 600,
+    'kevlar': 650,
+    'kevlarCapacete': 1000,
+    'he': 300,
+    'molotov': 400,
+    'flash': 200,
+    'smoke': 300,
+  }
+
+  function verificar_autenticacao() {
+    login_usuario = sessionStorage.login_usuario_meuapp;
+    nome_usuario = sessionStorage.nome_usuario_meuapp;
+
+    if (login_usuario == undefined) {
+      redirecionar_login();
+    } else {
+      b_usuario.innerHTML = nome_usuario;
+      login_entrar.style.display = none;
+      validar_sessao();
+    }
+
+  }
+  verificar_autenticacao();
+
+</script>

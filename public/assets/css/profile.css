@@ -1,13 +1,78 @@
-.container {
-    max-width: 80%;
+.content{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-box{
+    border: 1px solid #8892A4;
+    border-radius: 5px;
+    padding: 10px 30px;
+    background-color: #292c34;
+    width: 1500px;
+    height: 80%;
+    margin-left: 200px;
+    display: flex;
 }
 
-.profile-box {
-    background-color: #292c34;
-    padding: 30px 20px 0px 20px;
+.user-box{
+    width: 500px;
+    height: 100%;
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+
+#canvas-box{
+    width: 1000px;
+    height: 100%;
+}
+
+.dashboard{
+    height: 300px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.user-box img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.user-interaction{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    color: #8892A4;
+    background-color: #171a21;
+    border: 0;
+    font-size: 16px;
+    padding: 5px 35px;
     border-radius: 3px;
-    width: 80%;
-    height: 700px;
-    margin-left: 30%;
-    margin-top: 8%;
+    cursor: pointer;
+    transition-duration: 0.8s;
+    display: block;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+button:hover{
+    background-color: #8892A4;
+    color: #171a21;
+    transition-duration: 0.8s;
+}
+
+input{
+    background: #171a21;
+    color: #8892A4;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    height: 40px;
+    width: 200px;
+    padding-left: 5px;
+    margin-top: 100px;
 }

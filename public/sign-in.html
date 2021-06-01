@@ -56,7 +56,7 @@
 <script>
 
   function entrar() {
-    var formulario = new URLSearchParams(new FormData(form_login));
+    var formulario = new URLSearchParams(new FormData(form));
     fetch("/usuarios/autenticar", {
       method: "POST",
       body: formulario
